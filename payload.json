@@ -1,0 +1,127 @@
+
+
+
+
+1.Create User- 
+Request Type: POST
+URL: 127.0.0.1:3000/user/create-user
+Body:  
+{
+    "name": "Shailendra",
+    "username": "shailendra14",
+    "email": shailendra@gmail.com,
+    "password": "Password@2021"
+}
+Response:
+{
+    "user": {
+        "createdAt": 1628111026494,
+        "active": true,
+        "userId": 4,
+        "name": "Shailendra",
+        "username": "shailendra14",
+        "email": "shailendra@gmail.com",
+        "password": "Password@2021",
+        "updatedAt": "2021-08-04T21:03:46.494Z"
+    }
+}
+
+
+2.Post Update- 
+Request Type: POST
+URL: 127.0.0.1:3000/user/post-update
+Body:  
+{		
+    "post": "corona gone",
+    "userId": "4",
+}
+Response:
+
+   {
+    "post": {
+        "postedAt": 1628111352475,
+        "active": true,
+        "postId": 4,
+        "post": "corona gone",
+        "userId": "4",
+        "updatedAt": "2021-08-04T21:09:12.476Z",
+        "createdAt": "2021-08-04T21:09:12.476Z"
+    }
+}
+	
+
+3.Follow People- 
+Request Type: GET
+URL: 127.0.0.1:3000/user/follow-people:userId?userId=1
+Response: 
+{
+    "people": [
+        {
+            "userId": 2,
+            "name": "mike"
+        },
+        {
+            "userId": 3,
+            "name": "harry"
+        },
+        {
+            "userId": 4,
+            "name": "parry"
+        }
+    ]
+}
+
+4. InsertFollowers
+Request Type: POST
+URL: 127.0.0.1:3000/user/followers
+Body:  
+{	
+	"userId": "1",
+	"followerId": "4",
+}
+Response:
+
+{
+    "followers": {
+        "followedAt": 1628111704019,
+        "active": true,
+        "Id": 1,
+        "userId": "1",
+        "followerId": "4",
+        "updatedAt": "2021-08-04T21:15:04.021Z",
+        "createdAt": "2021-08-04T21:15:04.021Z"
+    }
+}
+
+5.Timeline - 
+Request Type: GET
+URL: 127.0.0.1:3000/user/timeline:followerId?followerId=4
+Response: 
+{
+    "timelinePost": [
+        {
+            "userId": 3,
+            "name": "mike",
+            "UserPosts": [
+                {
+                    "post": "corona 3rd wave",
+                    "postedAt": "2021-08-04T21:47:11.000Z"
+                },
+                {
+                    "post": "corona 2nd wave",
+                    "postedAt": "2021-08-04T21:39:21.000Z"
+                }
+            ]
+        },
+        {
+            "userId": 2,
+            "name": "sam",
+            "UserPosts": [
+                {
+                    "post": "corona 1st wave",
+                    "postedAt": "2021-08-04T21:39:33.000Z"
+                }
+            ]
+        }
+    ]
+}
